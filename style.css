@@ -1,12 +1,16 @@
-/* Importando uma fonte com toque medieval/ritualístico */
+/* Fontes místicas */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=MedievalSharp&display=swap');
 
+:root {
+    --ouro: #d4af37;
+    --vazio: #0a0a0a;
+    --prata: #c0c0c0;
+}
+
 body {
-    background-color: #0a0a0a; /* O vazio primordial */
-    background-image: 
-        radial-gradient(circle at center, #1a120b 0%, #000 80%),
-        url('https://www.transparenttextures.com/patterns/stardust.png'); /* Poeira estelar sutil */
-    color: #d4af37; /* Ouro Alquímico */
+    background-color: var(--vazio);
+    background-image: radial-gradient(circle, #1a120b 0%, #000 100%);
+    color: var(--ouro);
     font-family: 'MedievalSharp', serif;
     display: flex;
     flex-direction: column;
@@ -14,68 +18,74 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
-    overflow: hidden;
     text-align: center;
 }
 
-/* O Título como uma Invocação */
 h1 {
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 3rem;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    margin-bottom: 10px;
-    text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
-    animation: flicker 3s infinite alternate;
+    font-size: 3.5rem;
+    margin-bottom: 0;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }
 
-/* O Enigma (Texto) */
 #texto {
-    font-style: italic;
-    color: #c0c0c0; /* Prata opaca */
-    max-width: 400px;
-    line-height: 1.6;
-    border-top: 1px solid #d4af37;
-    border-bottom: 1px solid #d4af37;
-    padding: 20px;
-    margin-bottom: 30px;
+    color: var(--prata);
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
 }
 
-/* O Selo de Ativação (Botão) */
-#ganhar {
+/* Estilização do Input (O Código Secreto) */
+#cupom {
     background: transparent;
-    color: #d4af37;
-    border: 2px solid #d4af37;
-    padding: 15px 30px;
-    font-family: 'Cinzel Decorative', cursive;
+    border: none;
+    border-bottom: 1px solid var(--ouro);
+    color: var(--ouro);
+    font-family: 'MedievalSharp', serif;
+    padding: 10px;
+    text-align: center;
     font-size: 1.2rem;
+    margin-bottom: 20px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+#cupom::placeholder {
+    color: rgba(212, 175, 55, 0.3);
+}
+
+#cupom:focus {
+    border-bottom: 2px solid var(--ouro);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.1);
+}
+
+/* O Botão com Inversão de Cores */
+#ganhar {
+    background-color: transparent;
+    color: var(--ouro);
+    border: 2px solid var(--ouro);
+    padding: 15px 40px;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
-    position: relative;
-    transition: all 0.5s ease;
-    box-shadow: inset 0 0 0 0 #d4af37;
+    transition: all 0.4s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
 
+/* Efeito de Inversão Pedido */
 #ganhar:hover {
-    color: #000;
-    background-color: #d4af37;
-    box-shadow: 0 0 30px #d4af37;
-    transform: scale(1.1) rotate(1deg);
+    background-color: var(--ouro); /* Fundo vira ouro */
+    color: var(--vazio);           /* Letra vira a cor do fundo antigo */
+    border-color: var(--vazio);    /* Borda vira a cor do fundo antigo */
+    box-shadow: 0 0 25px var(--ouro);
+    transform: translateY(-3px);
 }
 
-/* Efeito de brilho instável (Vela/Energia) */
-@keyframes flicker {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.8; }
-    80% { opacity: 0.9; }
-    90% { text-shadow: 0 0 25px rgba(212, 175, 55, 0.9); }
-}
-
-/* Decoração geométrica sagrada */
-body::before {
-    content: "◈";
-    font-size: 5rem;
-    opacity: 0.1;
-    position: absolute;
-    top: 10%;
-    z-index: -1;
+/* Pequeno detalhe decorativo no rodapé */
+body::after {
+    content: "⛧";
+    margin-top: 50px;
+    font-size: 2rem;
+    opacity: 0.3;
 }
